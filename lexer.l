@@ -22,7 +22,7 @@
 ")"                 { return ')'; }
 ";"                 { return ';'; }
 "="                 { return '='; }
-"([^\\"]|\\.)*"     { yylval.sval=strdup(yytext+1); yylval.sval[strlen(yylval.sval)-1]='\0'; return STRING; }
+\"([^\\\"]|\\.)*\"     { yylval.sval=strdup(yytext+1); yylval.sval[strlen(yylval.sval)-1]='\0'; return STRING; }
 [0-9]+              { yylval.ival=atoi(yytext); return NUMBER; }
 [a-zA-Z_][a-zA-Z0-9_]* { yylval.sval=strdup(yytext); return ID; }
 .                    { return yytext[0]; }
