@@ -1,12 +1,9 @@
 #include <cstdio>
 #include <cstdlib>
 
+#include "ast.h"
 extern int yyparse();
 extern FILE* yyin;
-
-class Program; // forward
-class SymbolTable; // forward
-
 Program* get_root();
 SymbolTable& get_symtab();
 

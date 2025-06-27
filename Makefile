@@ -12,13 +12,13 @@ parser.tab.cpp parser.tab.h: parser.y
 lex.yy.c: lexer.l parser.tab.h
 	flex -o lex.yy.c lexer.l
 
-parser.tab.o: parser.tab.cpp symbol_table.h
+parser.tab.o: parser.tab.cpp symbol_table.h ast.h
 	$(CXX) $(CXXFLAGS) -c parser.tab.cpp
 
 lex.yy.o: lex.yy.c parser.tab.h
 	$(CXX) $(CXXFLAGS) -c lex.yy.c
 
-main.o: main.cpp parser.tab.h symbol_table.h
+main.o: main.cpp parser.tab.h symbol_table.h ast.h
 	$(CXX) $(CXXFLAGS) -c main.cpp
 
 symbol_table.o: symbol_table.cpp symbol_table.h
