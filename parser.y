@@ -146,6 +146,13 @@ void yyerror(const char* s);
 int yylex(void);
 %}
 
+%code requires {
+class Expression;
+class Statement;
+class BlockStmt;
+class Program;
+}
+
 %union {
     int ival;
     char* sval;
